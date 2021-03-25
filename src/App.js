@@ -4,6 +4,7 @@ import Persons from "./components/Persons";
 import PeronForm from "./components/PersonForm";
 import {ALL_PERSONS} from "./graphql/queries";
 import Notify from "./components/Notify";
+import PhoneForm from "./components/PhoneForm";
 
 function App() {
   //Poll
@@ -24,6 +25,7 @@ function App() {
       <Notify errorMessage={errorMessage}/>
       <Persons persons={result.data.allPersons}/>
       <PeronForm setError={setErrorMessage}/>
+      <PhoneForm setError={setErrorMessage}/>
     </>
   );
 }
