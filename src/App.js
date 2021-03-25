@@ -1,17 +1,14 @@
-import {gql, useQuery} from "@apollo/client";
+import {useQuery} from "@apollo/client";
 import Persons from "./components/Persons";
-
-const ALL_PERSONS = gql`
-  query {
-    allPersons {
-      name
-      phone
-      id
-    }
-  }
-`;
+import PeronForm from "./components/PersonForm";
+import {ALL_PERSONS} from "./graphql/queries";
 
 function App() {
+  //Poll
+  // const result = useQuery(ALL_PERSONS, {
+  //   pollInterval: 2000
+  // });
+
   const result = useQuery(ALL_PERSONS);
 
   if (result.loading) {
@@ -19,7 +16,10 @@ function App() {
   }
 
   return (
-    <Persons persons={result.data.allPersons}/>
+    <>
+      <Persons persons={result.data.allPersons}/>
+      <PeronForm />
+    </>
   );
 }
 
