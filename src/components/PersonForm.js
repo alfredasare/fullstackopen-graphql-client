@@ -23,7 +23,8 @@ const PeronForm = ({setError}) => {
 
         createPerson({
             variables: {
-                name, phone, street, city
+                name, street, city,
+                phone: phone.length > 0 ? phone : null
             }
         });
 
